@@ -1,17 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+
 <h1>Homepage</h1>
+<video autoplay muted loop id="bg-video">
+  <source src="{% static 'images/moodything.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag.
+  
+</video>
 <hr>
-{% if not user.is_authenticated %}
+
+<!-- {% if not user.is_authenticated %} -->
 <section>
   <form action="{% url 'home' %}" method="post" class="login">
     <h1>Login</h1>
-    {% csrf_token %} {{ form.as_p }}
+    {% csrf_token %}
+    {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}" />
     <button type="submit" class="btn submit">Login</button>
   </form>
 </section>
 {% endif %}
-
 
 {% endblock %}
