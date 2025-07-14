@@ -15,7 +15,11 @@ class Home(LoginView):
 class MoodCreate(CreateView):
     model = MoodEntry
     fields = '__all__'
+    success_url = '/about/'
 
+def moods_index(request):
+  moods = MoodEntry.objects.all()
+  return render(request, 'moods/index.html', {'moods': moods})
 
 def about(request):
     return render(request, "about.html")
