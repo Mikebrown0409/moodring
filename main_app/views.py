@@ -4,10 +4,17 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
+from django.views.generic.edit import CreateView
+from .models import MoodEntry
 
-# Define the home view function
+
+
 class Home(LoginView):
     template_name = "home.html"
+
+class MoodCreate(CreateView):
+    model = MoodEntry
+    fields = '__all__'
 
 
 def about(request):
