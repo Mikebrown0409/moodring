@@ -22,13 +22,9 @@
       <nav>
         <ul>
           {% if user.is_authenticated %}
-<<<<<<< HEAD
           <li><a href="{% url 'moods' %}">Dashboard</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'mood-create' %}">Log a Mood</a></li>
-=======
-          <li><a href="{% url 'about' %}">About</a></li>
->>>>>>> f528295 (Auth fixes)
 
           <li>
             <form id="logout-form" method="post" action="{% url 'logout' %}">
