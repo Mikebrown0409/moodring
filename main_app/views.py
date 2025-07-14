@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
@@ -24,7 +25,7 @@ def signup(request):
             user = form.save()
             # This is how we log a user in
             login(request, user)
-            return redirect("")
+            return redirect("about")
         else:
             error_message = "Invalid sign up - try again"
     # A bad POST or a GET request, so render signup.html with an empty form
