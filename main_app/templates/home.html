@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{% static 'css/home.css' %}"
+/>
+{% endblock %} {% block content %}
 
 <h1>Homepage</h1>
 <video autoplay muted loop id="bg-video">
