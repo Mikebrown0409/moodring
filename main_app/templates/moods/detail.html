@@ -19,6 +19,11 @@
     <h1>{{ mood.intensity }}</h1>
     <h3>{{ mood.mood }}</h3>
     <p class="journal_text">{{ mood.journal }}</p>
+
+        <a href="{% url 'cat-update' cat.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'cat-delete' cat.id %}" class="btn danger">Delete</a>
+
+    
   </div>
   </div>
     
