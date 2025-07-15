@@ -8,4 +8,6 @@ urlpatterns = [
     path('moods/', views.moods_index, name='moods'),
     path('moods/create/', views.MoodCreate.as_view(), name='mood-create'),
     path('moods/<int:pk>/', views.mood_detail, name='mood-detail'),
+    path('moods/<int:pk>/update/', views.MoodUpdate.as_view(), name='mood-update'),
+    path('moods/<int:pk>/delete/', views.MoodDelete.as_view(), name='mood-delete'),
 ]

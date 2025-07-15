@@ -14,19 +14,16 @@
   <div class="mood-img-container">
     <img src="{% static 'images/moods/' %}{{ mood.image }}" alt="{{ mood.name }}"> 
   </div>
+  
   <div class="mood-info">
     <h2>{{ mood.created_at }}</h2>
     <h1>{{ mood.intensity }}</h1>
     <h3>{{ mood.mood }}</h3>
     <p class="journal_text">{{ mood.journal }}</p>
-
-        <a href="{% url 'cat-update' cat.id %}" class="btn warn">Edit</a>
-    <a href="{% url 'cat-delete' cat.id %}" class="btn danger">Delete</a>
-
-    
+    <a href="{% url 'mood-update' mood.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'mood-delete' mood.id %}" class="btn danger">Delete</a>
   </div>
   </div>
-    
 
   </div>
 </section>

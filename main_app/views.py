@@ -4,7 +4,8 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView, ListView
 from .models import MoodEntry
 
 
@@ -15,7 +16,16 @@ class Home(LoginView):
 class MoodCreate(CreateView):
     model = MoodEntry
     fields = '__all__'
-    success_url = '/about/'
+    success_url = '/moods/'
+
+class MoodUpdate(UpdateView):
+    model = MoodEntry
+    fields = ['journal_text']
+    success_url = '/moods/'
+
+class MoodDelete(DeleteView):
+    model = MoodEntry
+    success_url = '/moods/'
 
 def moods_index(request):
   moods = MoodEntry.objects.all()
