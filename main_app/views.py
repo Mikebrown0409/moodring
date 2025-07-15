@@ -43,3 +43,8 @@ def signup(request):
     form = UserCreationForm()
     context = {"form": form, "error_message": error_message}
     return render(request, "signup.html", context)
+
+
+def mood_detail(request, pk):
+    mood = MoodEntry.objects.get(id=pk)
+    return render(request, 'moods/detail.html', {'mood': mood})

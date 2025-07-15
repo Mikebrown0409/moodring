@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/moods/mood-detail.css' %}" />
+{% endblock %} 
+{% block content %}
+<section class="page-header">
+  <h1>Mood Details</h1>
+  <a href="{% url 'moods' %}" class="btn primary">Back to Moods</a>
+</section>
+<section class="mood-detail-container"></section>
+<section class="mood-card">
+  <div class="mood-card-header">
+  <div class="mood-img-container">
+    <img src="{% static 'images/moods/' %}{{ mood.image }}" alt="{{ mood.name }}"> 
+  </div>
+  <div class="mood-info">
+    <h2>{{ mood.created_at }}</h2>
+    <h1>{{ mood.intensity }}</h1>
+    <h3>{{ mood.mood }}</h3>
+    <p class="journal_text">{{ mood.journal }}</p>
+  </div>
+  </div>
+    
+
+  </div>
+</section>
+{% endblock %}
