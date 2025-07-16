@@ -1,19 +1,50 @@
+:root {
+  --bg-overlay: rgba(255, 245, 235, 0.75);
+  --font-reg: 1rem;
+  --font-l: 1.1rem;
+  --card-border-radius: 10px;
+  --card-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --borders: 1px solid #f1d6b8;
+  --accent: #FFADAD;
+  --soft-bg: #FFF1E6;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--soft-bg);
+  color: #40342e;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5);
+}
+
 main {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   height: 100%;
-  
+  padding: 2rem 1rem;
 }
 
-main>section {
+main > section {
   width: 100%;
   padding: 10px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: var(--bg-overlay);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-box-shadow);
 }
 
 .header-logo-container {
@@ -39,9 +70,10 @@ main>section {
 .login h1 {
   font-size: clamp(3.2rem, 3vw, 4.8rem);
   margin: 10px 0;
+  color: #5e3d2c;
 }
 
-.login>p {
+.login > p {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -51,17 +83,32 @@ main>section {
 .login label {
   font-size: var(--font-reg);
   margin-bottom: 6px;
+  color: #5c4433;
 }
 
 .login input {
   font-size: var(--font-l);
-  padding: 2px 4px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
 .login .btn {
   align-self: flex-end;
   margin-right: 0;
   margin-top: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login .btn:hover {
+  background-color: #ff8b8b;
 }
 
 @media only screen and (min-width: 768px) {
@@ -69,7 +116,7 @@ main>section {
     justify-content: space-around;
   }
 
-  main>section {
+  main > section {
     width: 40%;
   }
 

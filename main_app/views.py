@@ -60,7 +60,7 @@ def signup(request):
             user = form.save()
             # This is how we log a user in
             login(request, user)
-            return redirect("about")
+            return redirect("moods")
         else:
             error_message = "Invalid sign up - try again"
     # A bad POST or a GET request, so render signup.html with an empty form
@@ -81,4 +81,3 @@ def get_context_data(self, **kwargs):
         context['affirmation'] = self.request.session.pop('affirmation', None)
         return context  
         # return render(request, 'moods/detail.html', {'mood': mood})
-

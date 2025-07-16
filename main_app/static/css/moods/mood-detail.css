@@ -1,0 +1,126 @@
+.mood-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.mood-card {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(255, 245, 235, 0.95);
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+}
+
+.mood-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.mood-img-container img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid #ffe0d1;
+  padding: 0.5rem;
+  background: #fff;
+}
+
+.mood-info {
+  width: 100%;
+}
+
+.mood-info h2.mood-date {
+  font-size: var(--font-reg);
+  color: #6b5e58;
+  margin: 0.5rem 0;
+}
+
+.mood-info h1.mood-intensity {
+  font-size: var(--font-xl);
+  color: #b24848;
+  margin: 0.2rem 0;
+}
+
+.mood-info h3.mood-name {
+  font-size: var(--font-l);
+  margin-bottom: 1rem;
+  color: #4e3a33;
+}
+
+.journal-text {
+  background-color: #fffaf8;
+  padding: 1.4rem;
+  border-radius: 10px;
+  font-size: var(--font-reg);
+  color: #3d2f2f;
+  margin: 1.5rem 0;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.mood-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: var(--font-l);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.affirmation-section {
+  margin-top: 2rem;
+  text-align: center;
+  background-color: #f7fff9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px dashed #c7e6d2;
+}
+
+.affirmation-section h3 {
+  margin-bottom: 1rem;
+  font-size: var(--font-l);
+  color: #2d6045;
+}
+
+.affirmation-text {
+  font-size: var(--font-reg);
+  color: #2d6045;
+  background-color: #e7f7ed;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.no-affirmation {
+  color: #999;
+  font-style: italic;
+  font-size: var(--font-reg);
+}
+
+/* Responsive Enhancements */
+@media (min-width: 768px) {
+  .mood-card-header {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .mood-img-container {
+    flex: 0 0 120px;
+  }
+
+  .mood-info {
+    flex: 1;
+    padding-left: 2rem;
+  }
+}
