@@ -1,30 +1,48 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/moods/mood-detail.css' %}" />
-{% endblock %} 
+{% endblock %}
+
 {% block content %}
 <section class="page-header">
   <h1>Mood Details</h1>
   <a href="{% url 'moods' %}" class="btn primary">Back to Moods</a>
 </section>
-<section class="mood-detail-container"></section>
-<section class="mood-card">
-  <div class="mood-card-header">
-  <div class="mood-img-container">
-    <img src="{% static 'images/moods/' %}{{ mood.image }}" alt="{{ mood.name }}"> 
-  </div>
-  
-  <div class="mood-info">
-    <h2>{{ mood.created_at }}</h2>
-    <h1>{{ mood.intensity }}</h1>
-    <h3>{{ mood.mood }}</h3>
-    <p class="journal_text">{{ mood.journal_text }}</p>
-    <a href="{% url 'mood-update' mood.id %}" class="btn warn">Edit</a>
-    <a href="{% url 'mood-delete' mood.id %}" class="btn danger">Delete</a>
-  </div>
-  </div>
 
+<section class="mood-detail-container">
+  <div class="mood-card">
+    <div class="mood-card-header">
+      <div class="mood-img-container">
+        <img src="{% static 'images/moods/' %}{{ mood.image }}" alt="{{ mood.name }}">
+      </div>
+
+      <div class="mood-info">
+        <h2 class="mood-date">{{ mood.created_at }}</h2>
+        <h1 class="mood-intensity">{{ mood.intensity }}</h1>
+        <h3 class="mood-name">{{ mood.mood }}</h3>
+        <p class="journal-text">{{ mood.journal_text }}</p>
+
+        <div class="mood-actions">
+          <a href="{% url 'mood-update' mood.id %}" class="btn warn">Edit</a>
+          <a href="{% url 'mood-delete' mood.id %}" class="btn danger">Delete</a>
+        </div>
+      </div>
+    </div>
+
+    {% if affirmation %}
+    <div class="affirmation-section">
+      <hr />
+      <h3>Your Personalized Affirmation</h3>
+      <p class="affirmation-text"><em>{{ affirmation }}</em></p>
+    </div>
+    {% else %}
+    <div class="affirmation-section">
+      <hr />
+      <p class="no-affirmation">No affirmation was generated.</p>
+    </div>
+    {% endif %}
   </div>
 </section>
 {% endblock %}

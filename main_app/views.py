@@ -7,7 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, ListView
 from .models import MoodEntry
-
+import os
+from moodring.api import generate_affirmation
 
 
 class Home(LoginView):
@@ -15,8 +16,25 @@ class Home(LoginView):
 
 class MoodCreate(CreateView):
     model = MoodEntry
-    fields = '__all__'
-    success_url = '/moods/'
+    fields = ['mood', 'intensity', 'journal_text']
+    
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        response = super().form_valid(form)
+
+        # Get the mood and journal
+        mood = form.cleaned_data['mood']
+        journal_text = form.cleaned_data['journal_text']
+        api_key = os.getenv("GEMINI_API_KEY")
+
+        # Call the model
+        affirmation = generate_affirmation(api_key, mood, journal_text)
+
+        # Pass affirmation to session
+        self.request.session['affirmation'] = affirmation
+        return response
+
 
 class MoodUpdate(UpdateView):
     model = MoodEntry
@@ -57,4 +75,14 @@ def signup(request):
 
 def mood_detail(request, pk):
     mood = MoodEntry.objects.get(id=pk)
-    return render(request, 'moods/detail.html', {'mood': mood})
+    affirmation = request.session.pop('affirmation', None)
+    return render(request, 'moods/detail.html', {
+        'mood': mood,
+        'affirmation': affirmation
+    })
+def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['affirmation'] = self.request.session.pop('affirmation', None)
+        return context  
+        # return render(request, 'moods/detail.html', {'mood': mood})
+

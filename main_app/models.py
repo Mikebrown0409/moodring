@@ -25,3 +25,12 @@ class MoodEntry(models.Model):
 
     def get_absolute_url(self):
         return reverse("mood-detail", kwargs={"pk": self.pk})
+
+# class GeneratedAffirmation(models.Model):
+#     """Store generated affirmations linked to mood entries"""
+#     mood_entry = models.OneToOneField(MoodEntry, on_delete=models.CASCADE, related_name='affirmation')
+#     affirmation_text = models.TextField()
+#     generated_at = models.DateTimeField(auto_now_add=True)
+    
+#     def __str__(self):
+#         return f"Affirmation for {self.mood_entry.mood}"
