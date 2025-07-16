@@ -196,5 +196,33 @@ def main():
     tester.run_all_tests()
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
+
+
+def generate_affirmation(api_key, mood, journal_text):
+    """Generate a single affirmation for Django app"""
+    try:
+        genai.configure(api_key=api_key)
+        model = genai.GenerativeModel("gemini-2.0-flash")
+
+        prompt = f"""
+        Create a personalized affirmation for someone who is feeling {mood}.
+        Context: {journal_text}
+
+        Requirements:
+        - Keep it under 25 words
+        - Make it positive and empowering
+        - Provide actionable steps if applicable
+        - Use "I" statements
+        - Be specific to the {mood} feeling
+
+        Return only the affirmation text.
+        """
+
+        response = model.generate_content(prompt)
+        return response.text.strip()
+
+    except Exception as e:
+        print(f"Error generating affirmation: {e}")
+        return "We're unable to generate an affirmation at this time."
