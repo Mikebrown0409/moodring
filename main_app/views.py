@@ -18,22 +18,18 @@ class MoodCreate(CreateView):
     model = MoodEntry
     fields = ['mood', 'intensity', 'journal_text']
     
-
     def form_valid(self, form):
         form.instance.user = self.request.user
-        response = super().form_valid(form)
 
-        # Get the mood and journal
         mood = form.cleaned_data['mood']
         journal_text = form.cleaned_data['journal_text']
         api_key = os.getenv("GEMINI_API_KEY")
 
-        # Call the model
         affirmation = generate_affirmation(api_key, mood, journal_text)
+        
+        form.instance.affirmation = affirmation
 
-        # Pass affirmation to session
-        self.request.session['affirmation'] = affirmation
-        return response
+        return super().form_valid(form)
 
 
 class MoodUpdate(UpdateView):

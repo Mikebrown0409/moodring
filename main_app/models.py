@@ -5,7 +5,7 @@ import datetime
 
 INTENSITY_LEVEL = (
     ("1", "Subtle"),
-    ("2", "Uncomfortable"),
+    ("2", "Mild"),
     ("3", "Moderate"),
     ("4", "Strong"),
     ("5", "Intense"),
@@ -18,6 +18,7 @@ class MoodEntry(models.Model):
     mood = models.CharField(max_length=100)
     intensity = models.CharField(max_length=100, choices=INTENSITY_LEVEL)
     journal_text = models.TextField(max_length=250)
+    affirmation = models.TextField(blank=True, null=True)
     created_at = models.DateField("Journal Date", default=datetime.date.today)
 
     def __str__(self):
