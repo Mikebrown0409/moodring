@@ -31,11 +31,11 @@
       </div>
     </div>
 
-    {% if affirmation %}
+    {% if mood.affirmation %}
     <div class="affirmation-section">
       <hr />
       <h3>Your Personalized Affirmation</h3>
-      <p class="affirmation-text"><em>{{ affirmation }}</em></p>
+      <p class="affirmation-text"><em>{{ mood.affirmation }}</em></p>
     </div>
     {% else %}
     <div class="affirmation-section">
