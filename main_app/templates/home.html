@@ -16,9 +16,9 @@
 <hr>
 
 <!-- {% if not user.is_authenticated %} -->
-<section>
-  <form action="{% url 'home' %}" method="post" class="login">
-    <h1>Login</h1>
+<section style="display: flex; justify-content: center; margin-right: 310px; margin-top: 300px">
+  <form action="{% url 'home' %}" method="post" class="login" style="display: inline-block; text-align: left;">
+    <h1 style="color: #000000">Login</h1>
     {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}" />

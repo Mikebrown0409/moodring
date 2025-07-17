@@ -6,8 +6,9 @@
 {% endblock %}
 
 {% block content %}
-<section class="page-header">
-  <h1 style="color: #000000; font-size: 24px; margin-left: 93px;">Mood Details</h1>
+<section class="page-header" >
+ 
+  <h1 style="color: #000000; font-size: 24px; margin-left: 93px; ">Mood Details</h1>
 
 </section>
 
@@ -97,8 +98,25 @@
       </div>
       
     </div>
-    <div style="margin-top: 24px">
-      <a href="{% url 'moods' %}" class="btn primary">Back to Moods</a>
+    <div style="margin-top: 24px; "></div>
+      <a href="{% url 'moods' %}"    style="
+      align-self: flex-end;
+      margin-right: 0px;
+      margin-left: 607px;
+      padding: 10px 18px;
+      background-color: #f1d6b8;
+      color: #000000;
+      font-weight: bold;
+      border: 2px solid #000000;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 12px;
+      font-size: 14px;
+      text-decoration: none;
+    "
+    onmouseover="this.style.backgroundColor='#e2c099';"
+    onmouseout="this.style.backgroundColor='#f1d6b8';">Back to Moods</a>
     </div>
 
   </div>
