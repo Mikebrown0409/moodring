@@ -1,0 +1,42 @@
+.page-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #5e4033;
+}
+
+.page-header h1 {
+  font-size: var(--font-xxl);
+}
+
+.resources-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.resource-card {
+  background-color: rgba(255, 245, 235, 0.9);
+  border-radius: 12px;
+  box-shadow: var(--card-box-shadow);
+  max-width: 360px;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.resource-card h2 {
+  color: #884848;
+  font-size: var(--font-l);
+}
+
+.resource-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #3e6a89;
+  font-weight: 600;
+}
+
+.resource-card a:hover {
+  color: #2f4f77;
+}

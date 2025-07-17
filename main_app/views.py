@@ -42,8 +42,8 @@ class MoodDelete(DeleteView):
     success_url = '/moods/'
 
 def moods_index(request):
-  moods = MoodEntry.objects.all()
-  return render(request, 'moods/index.html', {'moods': moods})
+    moods = MoodEntry.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, 'moods/index.html', {'moods': moods})
 
 def about(request):
     return render(request, "about.html")

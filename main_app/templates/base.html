@@ -25,8 +25,9 @@
         <ul>
           {% if user.is_authenticated %}
           <li><a href="{% url 'moods' %}" style="color: #000000;">Dashboard</a></li>
-          <li><a href="{% url 'about' %}" style="color: #000000;">About</a></li>
           <li><a href="{% url 'mood-create' %}" style="color: #000000;">Log a Mood</a></li>
+          <li><a href="{% url 'about' %}" style="color: #000000;">Resources</a></li>
+          
 
           <li>
             <form id="logout-form" method="post" action="{% url 'logout' %}">
