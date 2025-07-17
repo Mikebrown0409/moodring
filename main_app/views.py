@@ -12,7 +12,7 @@ from moodring.api import generate_affirmation
 
 
 MOOD_COLORS = {
-        "Happy": "#FFF3B0",        # Soft Yellow
+    "Happy": "#FFF3B0",        # Soft Yellow
     "Sad": "#A0C4FF",          # Light Blue
     "Angry": "#FFADAD",        # Soft Red
     "Anxious": "#FFE1A8",      # Soft Orange
@@ -20,7 +20,7 @@ MOOD_COLORS = {
     "Tired": "#D0C7FF",        # Light Lavender
     "Excited": "#FFC6FF",      # Soft Pink
     "Frustrated": "#CABBE9",   # Soft Purple
-    "Grateful": "#B5F2D4",     # Light Teal
+    "Grateful": "#86F284",     # Light Teal
     "Other": "#E0E0E0",        # Light Gray fallback
 }
 
