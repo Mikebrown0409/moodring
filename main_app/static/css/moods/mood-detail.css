@@ -38,7 +38,7 @@
 .mood-info h2.mood-date {
   font-size: var(--font-reg);
   color: #6b5e58;
-  margin: 0.5rem 0;
+
 }
 
 .mood-info h1.mood-intensity {

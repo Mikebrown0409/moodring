@@ -7,7 +7,7 @@
 
 {% block content %}
 <section class="page-header">
-  <h1 style="color: #000000; font-size: 24px">Mood Details</h1>
+  <h1 style="color: #000000; font-size: 24px; margin-left: 93px;">Mood Details</h1>
 
 </section>
 
@@ -20,20 +20,32 @@
 
       <div class="mood-info">
 
-        <h1 class="mood-date" style="color: #000000; font-size: 18px;"> On {{ mood.created_at }} you said you were
+        <h1 class="mood-date" style="color: #000000; font-size: 18px; margin-left: -14px"> On {{ mood.created_at }} you said you were
           feeling <strong> {{ mood.mood }} </strong></h1>
-        <h2 class="mood-intensity" style="color: #676767; font-size: 16px"> Your feeling intensity was {{
-          mood.get_intensity_display }}</h2>
+        <p  style="color: #676767; font-size: 16px; margin-left: -14px"> Your feeling intensity was {{mood.get_intensity_display }}</>
 
-        <div class="journal-text"
-          style="background: repeating-radial-gradient(circle, #ffecd2, #fcb69f, #d4fc79, #a1c4fd); opacity: 0.5;">
-          <p>
-            You also said "{{ mood.journal_text }}"
+        <div
+        style="padding: 16px; height: 200px; border-radius: 7px;
+        background: repeating-radial-gradient(circle,
+          rgba(255, 236, 210, 0.5),
+          rgba(252, 182, 159, 0.5),
+          rgba(212, 252, 121, 0.5),
+          rgba(161, 196, 253, 0.5));
+          margin-left: -14px">
+          <div style="opacity: 1;"> 
+          <strong style="color: #000000; font-size: 16px">
+            You also said 
+          </strong>
+        </div>
+        <div> 
+          <p style="color: #000000; font-size: 24px"> 
+            "{{ mood.journal_text }}"
           </p>
+        </div>
         </div>
 
 
-        <div class="mood-actions">
+        <div class="mood-actions" style="margin: 12px;">
           <a href="{% url 'mood-update' mood.id %}" style="color: #000000; font-size: 16px;">Edit</a>
           <a href="{% url 'mood-delete' mood.id %}" style="color: #000000; font-size: 16px;">Delete</a>
         </div>
@@ -83,11 +95,11 @@
         {% endif %}
 
       </div>
-      <!-- <div style="margin-top: 24px">
-        <a href="{% url 'moods' %}" class="btn primary">Back to Moods</a>
-      </div> -->
+      
     </div>
-
+    <div style="margin-top: 24px">
+      <a href="{% url 'moods' %}" class="btn primary">Back to Moods</a>
+    </div>
 
   </div>
 
