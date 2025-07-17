@@ -90,13 +90,13 @@
 .affirmation-section h3 {
   margin-bottom: 1rem;
   font-size: var(--font-l);
-  color: #2d6045;
+  color: #000000;
 }
 
 .affirmation-text {
   font-size: var(--font-reg);
   color: #2d6045;
-  background-color: #e7f7ed;
+  background-color: #e7f7ed00;
   padding: 1rem;
   border-radius: 8px;
 }

@@ -8,28 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="shortcut icon" type="image/png" href="{% static 'images/splash.svg' %}" /> -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <title>Mood Rind</title>
+    <title>Mood Ring</title>
     {% block head %} 
     {% endblock %}
   </head>
-  <body>
-    <header>
-      <div class="header-logo-container">
-        <a href="{% url 'home' %}">
-          <img src="{% static 'images/header1.png' %}" class="header-ring" alt=" Logo" />
+  <body style="margin: 0; overflow-x: hidden;">
+    <header style="height: 80px; width: 100%; padding-left: 21px; padding-right: 21px;">
+      <div class="header-logo-container" style="border-radius: 7px; background-color: #ffffff; width: 180px;">
+        <a href="{% url 'home' %}" style="text-decoration: none;">
+          <div style="display: flex;"> 
+          <img src="{% static 'images/header1.png' %}" class="header-ring" alt=" Logo"  style="width: 18%; margin-top: -2px; margin-left: 0px;  margin-right: 60px;"/> <h3 style="font-size: 16px; text-decoration: none; color: #000000; margin-top: 0px; margin-left: -50px;"> Mood Ring</h3>
+        </div>
         </a>
       </div>
-      <nav>
+      <nav style="border-radius: 7px; background-color: #ffffff;">
         <ul>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'moods' %}">Dashboard</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'mood-create' %}">Log a Mood</a></li>
+          <li><a href="{% url 'moods' %}" style="color: #000000;">Dashboard</a></li>
+          <li><a href="{% url 'about' %}" style="color: #000000;">About</a></li>
+          <li><a href="{% url 'mood-create' %}" style="color: #000000;">Log a Mood</a></li>
 
           <li>
             <form id="logout-form" method="post" action="{% url 'logout' %}">
               {% csrf_token %}
-              <button type="submit">Log out</button>
+              <button type="submit" style="color: #000000;">Log out</button>
             </form>
           </li>
           {% else %}
@@ -40,7 +42,7 @@
         </ul>
       </nav>
     </header>
-    <main>
+    <main >
       {% block content %}
       {% endblock %}
     </main>

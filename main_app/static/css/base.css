@@ -1,8 +1,13 @@
 /* static/css/base.css  */
+* {
+  box-sizing: border-box;
+}
 
 html {
   box-sizing: border-box;
 }
+
+
 
 *,
 *::before,
@@ -47,9 +52,8 @@ body {
 
 header {
   width: 100%;
-  background: var(--nav-bg-ff);
-  border-bottom: var(--borders);
-  box-shadow: var(--card-box-shadow);
+  box-sizing: border-box;
+  padding: 0 20px;
 }
 
 nav {
@@ -238,7 +242,10 @@ h2 {
   .page-header img:first-of-type {
     margin-left: 25px;
   }
-
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     header {
       background: var(--nav-bg);
