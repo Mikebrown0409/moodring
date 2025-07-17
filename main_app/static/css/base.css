@@ -4,22 +4,34 @@ html {
   box-sizing: border-box;
 }
 
-/* The Universal Selector */
 *,
-/* All elements*/
 *::before,
-/* All ::before pseudo-elements */
 *::after {
-  /* All ::after pseudo-elements */
-  /* height & width will now include border & padding by default
-     but can be over-ridden as needed */
   box-sizing: inherit;
 }
 
-/* resets font size to be 62.5% of the user preference - 
-     in most browser configurations this will be 10px */
 :root {
   font-size: 62.5%;
+
+  --soft-bg: #FFF7F0;
+  --text-color: #3b2f2f;
+  --nav-bg: rgba(255, 220, 200, 0.75);
+  --nav-bg-ff: rgba(255, 235, 215, 0.9);
+  --link-hover-color: #bf5f5f;
+  --button-bg: #fff2ec;
+  --button-bg-hover: #ffe1d6;
+  --submit: #48a36d;
+  --warn: #f0a202;
+  --danger: #d65a5a;
+  --secondary: #5a5a5a;
+  --card-box-shadow: 5px 5px 6px -1px rgba(0, 0, 0, 0.1);
+  --font-xtreme: 4.2rem;
+  --font-xxl: 3.6rem;
+  --font-xl: 2.4rem;
+  --font-l: 1.8rem;
+  --font-reg: 1.6rem;
+  --card-border-radius: 10px;
+  --borders: 1px solid #f1d6b8;
 }
 
 body {
@@ -27,35 +39,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
-  --nav-bg: rgba(104, 197, 248, 0.7);
-  --nav-bg-ff: rgba(104, 197, 248, 0.9);
-  --borders: rgb(36, 116, 248) solid 2px;
-  --text-color: rgb(17, 20, 17);
-  --link-hover-color: rgb(16, 56, 158);
-  --button-bg: rgb(245, 245, 245);
-  --button-bg-hover: rgb(226, 226, 226);
-  --submit: rgb(26, 128, 0);
-  --warn: rgb(255, 102, 0);
-  --danger: rgb(220, 20, 30);
-  --secondary: rgb(57, 57, 57);
-  --card-box-shadow: 5px 5px 6px -1px #aaa;
-  --font-xtreme: 4.2rem;
-  --font-xxl: 3.6rem;
-  --font-xl: 2.4rem;
-  --font-l: 1.8rem;
-  --font-reg: 1.6rem;
-  --card-border-radius: 6px;
+  background-color: var(--soft-bg);
+  color: var(--text-color);
 }
 
 header {
   width: 100%;
   background: var(--nav-bg-ff);
-  /* rgba(104, 197, 248, .9) */
   border-bottom: var(--borders);
+  box-shadow: var(--card-box-shadow);
 }
 
 nav {
@@ -66,26 +60,6 @@ ul {
   margin: 0;
   list-style: none;
   padding: 0;
-}
-
-main {
-  width: 100%;
-  padding: 0 10px;
-}
-
-h2 {
-  font-size: var(--font-xl);
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-  font-size: 16px;
-}
-
-nav a:hover {
-  color: var(--link-hover-color);
 }
 
 nav ul {
@@ -99,6 +73,26 @@ nav li {
   padding: 5px 8px;
 }
 
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: var(--link-hover-color);
+}
+
+main {
+  width: 100%;
+  padding: 0 10px;
+}
+
+h2 {
+  font-size: var(--font-xl);
+}
+
 .header-logo-container {
   margin: auto;
   padding: 10px 20px 0;
@@ -109,44 +103,6 @@ nav li {
   display: flex;
   align-items: center;
   margin: 20px;
-}
-
-.btn {
-  font-size: var(--font-l);
-  padding: 8px 16px;
-  border-radius: 6px;
-  border-width: 2px;
-  border-style: solid;
-  text-decoration: none;
-  background-color: var(--button-bg);
-  font-weight: 600;
-  cursor: pointer;
-  font-family: inherit;
-  margin-right: 10px;
-}
-
-.btn:hover {
-  background-color: var(--button-bg-hover);
-}
-
-.submit {
-  color: var(--submit);
-  border-color: var(--submit);
-}
-
-.secondary {
-  color: var(--secondary);
-  border-color: var(--secondary);
-}
-
-.warn {
-  color: var(--warn);
-  border-color: var(--warn);
-}
-
-.danger {
-  color: var(--danger);
-  border-color: var(--danger);
 }
 
 .page-header h1 {
@@ -177,6 +133,61 @@ nav li {
   object-fit: contain;
 }
 
+.btn {
+  font-size: var(--font-l);
+  padding: 8px 16px;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  text-decoration: none;
+  background-color: var(--button-bg);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  margin-right: 10px;
+  color: var(--text-color);
+}
+
+.btn:hover {
+  background-color: var(--button-bg-hover);
+}
+
+.submit {
+  color: var(--submit);
+  border-color: var(--submit);
+}
+
+.secondary {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.warn {
+  color: var(--warn);
+  border-color: var(--warn);
+}
+
+.danger {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+#logout-form button {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+#logout-form button:hover {
+  color: var(--link-hover-color);
+}
+
 @media only screen and (min-width: 768px) {
   header {
     position: sticky;
@@ -197,7 +208,6 @@ nav li {
     padding: 0 15px;
   }
 
-  /* visual fix to help align logo */
   .header-logo-container {
     padding-top: 3px;
   }
@@ -265,7 +275,6 @@ nav li {
   }
 
   .header-logo-container {
-    /* visual fix to help align logo */
     padding-top: 6px;
     width: 256px;
     height: 35px;
@@ -279,25 +288,9 @@ nav li {
 
     nav,
     .header-logo-container {
-      background: rgba(104, 197, 248, 0.6);
+      background: rgba(255, 235, 215, 0.6);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
   }
-}
-
-#logout-form button {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-  font-size: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  font-family: inherit;
-}
-
-#logout-form button:hover {
-  color: var(--link-hover-color);
 }
