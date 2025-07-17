@@ -20,8 +20,6 @@ MOOD_CHOICES = [
     ("Excited", "Excited 🤩"),
     ("Tired", "Tired 😴"),
     ("Grateful", "Grateful 🙏"),
-    ("Lonely", "Lonely 😞"),
-    ("Motivated", "Motivated 💪"),
     ("Other", "Other ✍️"),
 ]
 
