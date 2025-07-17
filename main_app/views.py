@@ -3,13 +3,26 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-
+from django.db.models import Count
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, ListView
 from .models import MoodEntry
 import os
 from moodring.api import generate_affirmation
 
+
+MOOD_COLORS = {
+        "Happy": "#FFF3B0",        # Soft Yellow
+    "Sad": "#A0C4FF",          # Light Blue
+    "Angry": "#FFADAD",        # Soft Red
+    "Anxious": "#FFE1A8",      # Soft Orange
+    "Calm": "#C7F9CC",         # Pale Green
+    "Tired": "#D0C7FF",        # Light Lavender
+    "Excited": "#FFC6FF",      # Soft Pink
+    "Frustrated": "#CABBE9",   # Soft Purple
+    "Grateful": "#B5F2D4",     # Light Teal
+    "Other": "#E0E0E0",        # Light Gray fallback
+}
 
 class Home(LoginView):
     template_name = "home.html"
@@ -43,7 +56,25 @@ class MoodDelete(DeleteView):
 
 def moods_index(request):
     moods = MoodEntry.objects.filter(user=request.user).order_by('-created_at')
-    return render(request, 'moods/index.html', {'moods': moods})
+    
+    mood_summary = (
+        MoodEntry.objects
+        .filter(user=request.user)
+        .values('mood')
+        .annotate(count=Count('mood'))
+        .order_by('-count')
+    )
+
+    labels = [entry['mood'] for entry in mood_summary]
+    data = [entry['count'] for entry in mood_summary]
+    colors = [MOOD_COLORS.get(label, "#E0E0E0") for label in labels]
+
+    return render(request, 'moods/index.html', {
+    'moods': moods,
+    'mood_labels': labels,
+    'mood_data': data,
+    'mood_colors': colors,
+})
 
 def about(request):
     return render(request, "about.html")
