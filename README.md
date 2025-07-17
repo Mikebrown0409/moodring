@@ -19,49 +19,18 @@ This project was developed as a team collaboration to explore the intersection o
 - Optional affirmations for reflection or motivation  
 
 ---
+## 📷 Screenshots (Coming Soon)
 
-## 🛠 Technologies Used
-
-- **Python** & **Django** – Backend and database management  
-- **HTML/CSS** – User interface design  
-- **JavaScript** – Interactive frontend features  
-- **SQLite** – Default development database  
-- **Bootstrap / Tailwind CSS** (if applicable) – UI styling  
-
----
 
 ## 🚀 Getting Started
 
-### Installation
+## 🛠 Technologies Used
 
-1. Clone this repository:
-
-    ```bash
-    git clone https://github.com/YOUR-USERNAME/moodring.git
-    cd moodring
-    ```
-
-2. Create and activate a virtual environment:
-
-    ```bash
-    python3 -m venv env
-    source env/bin/activate  # On Windows: env\Scripts\activate
-    ```
-
-3. Install dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Run migrations and start the server:
-
-    ```bash
-    python manage.py migrate
-    python manage.py runserver
-    ```
-
-5. Open your browser and go to `http://localhost:8000`
+- **Python** , **Django & Postgres** – Backend and database management  
+- **HTML/CSS** – User interface design  
+- **JavaScript** – Interactive frontend features  
+- **Neon** – Default development database  
+- **Gemini AI** - API integration  
 
 ---
 
@@ -85,10 +54,6 @@ Each team member contributed to various parts of the app, including frontend des
 - User authentication with personalized dashboards  
 - Exportable mood journals  
 - Daily mood reminders or notifications  
-
----
-
-## 📷 Screenshots (Coming Soon)
 
 ---
 
