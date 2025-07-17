@@ -8,11 +8,11 @@
 
 {% block content %}
 <section class="page-header">
-  <h1 class="subheading">Mood Logs</h1>
-  <p class="description">Your day-to-day mood snapshots</p>
-  <p class="description">
-    Each card shows a date where you recorded your mood. Click on a card to dive deeper into your mood, intensity,
-    and journal reflections. Track patterns, reflect often, and grow with your logs.
+  <h1 class="subheading" style="color: #000000">Mood Logs</h1>
+  <p class="description" style="color: #000000">Your day-to-day mood snapshots</p>
+  <p class="description"; style="color: #000000;  text-align: justify;"">
+    Each card shows the date that you recorded your mood. Click on a card to dive deeper into your mood, intensity
+    and journal reflections. Track patterns, reflect and understand changes in your mood.
   </p>
 </section>
 
@@ -26,13 +26,13 @@
 <!-- Mood Cards -->
 <section class="card-container">
   {% for mood in moods %}
-    <a href="{% url 'mood-detail' mood.id %}" class="card-link">
-      <div class="card">
+    <a href="{% url 'mood-detail' mood.id %}" class="card-link" style="text-decoration: none;">
+      <div class="card" style="background-color: #ffffff;">
         <div class="card-content">
           <div class="card-img-container">
             <img src="{% static 'images/header1.png' %}" alt="Mood Icon" />
           </div>
-          <h2 class="card-title">{{ mood.created_at }}</h2>
+          <h2 class="card-title" style="color: #000000;  font-size: 16px;">{{ mood.created_at }}</h2>
         </div>
       </div>
     </a>
@@ -41,36 +41,38 @@
 
 <!-- Chart JS Script -->
 <script>
-  const ctx = document.getElementById('moodChart').getContext('2d');
-  const moodChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: {{ mood_labels|safe }},
-      datasets: [{
-        label: 'Mood Count',
-        data: {{ mood_data|safe }},
-          backgroundColor: {{ mood_colors|safe }},
-        borderWidth: 1
-      }]
-    },
+  document.addEventListener('DOMContentLoaded', function () {
+    const ctx = document.getElementById('moodChart').getContext('2d');
+    const moodChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: {{ mood_labels| safe }},
+    datasets: [{
+      label: 'Mood Count',
+      data: {{ mood_data| safe }},
+    backgroundColor: {{ mood_colors| safe }},
+    borderWidth: 1
+        }]
+      },
     options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'right',
-          labels: {
-            boxWidth: 20,
-            padding: 15
-          }
-        },
-        tooltip: {
-          enabled: true
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: {
+          boxWidth: 20,
+          padding: 15
         }
       },
-      layout: {
-        padding: 10
+      tooltip: {
+        enabled: true
       }
+    },
+    layout: {
+      padding: 10
     }
+  }
+    });
   });
 </script>
 {% endblock %}

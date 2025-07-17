@@ -27,7 +27,27 @@
     <table style="border-radius: 7px; background: #fff; border: 1px solid #f1d6b8; padding: 20px;">
         {{ form.as_table }}
     </table>
-    <button type="submit" class="btn submit">Submit!</button>
+    <div style="text-align: right;">
+    <button type="submit" 
+    type="submit"
+    style="
+      align-self: flex-end;
+      margin-right: 40px;
+      padding: 10px 18px;
+      background-color: #f1d6b8;
+      color: #000000;
+      font-weight: bold;
+      border: 2px solid #000000;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 12px;
+      font-size: 16px;
+    "
+    onmouseover="this.style.backgroundColor='#e2c099';"
+    onmouseout="this.style.backgroundColor='#f1d6b8';"
+  > Submit!</button>
+  </div>
 </form>
 
 {% endblock %}
