@@ -12,8 +12,8 @@
     {% block head %} 
     {% endblock %}
   </head>
-  <body style="margin: 0; overflow-x: hidden;">
-    <header style="height: 80px; width: 100%; padding-left: 21px; padding-right: 21px;">
+  <body >
+    <header style="height: 80px; width: 100%; padding-left: 21px; padding-right: 21px; background-color: #FFF7F0; ">
       <div class="header-logo-container" style="border-radius: 7px; background-color: #ffffff; width: 180px;">
         <a href="{% url 'home' %}" style="text-decoration: none;">
           <div style="display: flex;"> 
@@ -21,7 +21,7 @@
         </div>
         </a>
       </div>
-      <nav style="border-radius: 7px; background-color: #ffffff;">
+      <nav style="border-radius: 7px; background-color: #ffffff; ">
         <ul>
           {% if user.is_authenticated %}
           <li><a href="{% url 'moods' %}" style="color: #000000;">Dashboard</a></li>
