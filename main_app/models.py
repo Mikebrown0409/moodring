@@ -11,11 +11,25 @@ INTENSITY_LEVEL = (
     ("5", "Intense"),
 )
 
+MOOD_CHOICES = [
+    ("Happy", "Happy 😊"),
+    ("Sad", "Sad 😢"),
+    ("Angry", "Angry 😠"),
+    ("Anxious", "Anxious 😰"),
+    ("Calm", "Calm 😌"),
+    ("Excited", "Excited 🤩"),
+    ("Tired", "Tired 😴"),
+    ("Grateful", "Grateful 🙏"),
+    ("Lonely", "Lonely 😞"),
+    ("Motivated", "Motivated 💪"),
+    ("Other", "Other ✍️"),
+]
+
 
 # Create your models here.
 class MoodEntry(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    mood = models.CharField(max_length=100)
+    mood = models.CharField(max_length=100, choices=MOOD_CHOICES)
     intensity = models.CharField(max_length=100, choices=INTENSITY_LEVEL)
     journal_text = models.TextField(max_length=250)
     affirmation = models.TextField(blank=True, null=True)
