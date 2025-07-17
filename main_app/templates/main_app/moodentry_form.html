@@ -2,17 +2,29 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+<style>
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #f1d6b8 !important;
+        outline: none !important;
+        box-shadow: 0 0 5px #f1d6b8 !important;
+    }
+
+    </style>
+
 {% endblock %}
 {% block content %}
 
 <div class="page-header">
-    <h1>Log a Mood</h1>
     <img src="{% static 'images/header1.png' %}" alt="ring 1" />
+    <h1 style="color: #000000; font-size: 32px; margin-left: 8px;">Log a Mood</h1>
+
 </div>
 
-<form action="" method="post" class="form-container">
+<form action="" method="post" class="form-container" >
     {% csrf_token %}
-    <table>
+    <table style="border-radius: 7px; background: #fff; border: 1px solid #f1d6b8; padding: 20px;">
         {{ form.as_table }}
     </table>
     <button type="submit" class="btn submit">Submit!</button>

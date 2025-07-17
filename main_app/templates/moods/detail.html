@@ -7,42 +7,90 @@
 
 {% block content %}
 <section class="page-header">
-  <h1>Mood Details</h1>
-  <a href="{% url 'moods' %}" class="btn primary">Back to Moods</a>
+  <h1 style="color: #000000; font-size: 24px">Mood Details</h1>
+
 </section>
 
 <section class="mood-detail-container">
-  <div class="mood-card">
+  <div class="mood-card" style="border-radius: 7px; background: #fff; border: 1px solid #f1d6b8; padding: 20px;">
     <div class="mood-card-header">
-      <div class="mood-img-container">
+      <!-- <div class="mood-img-container">
         <img src="{% static 'images/moods/' %}{{ mood.image }}" alt="{{ mood.name }}">
-      </div>
+      </div> -->
 
       <div class="mood-info">
-        <h2 class="mood-date">{{ mood.created_at }}</h2>
-        <h1 class="mood-intensity">{{ mood.intensity }}</h1>
-        <h3 class="mood-name">{{ mood.mood }}</h3>
-        <p class="journal-text">{{ mood.journal_text }}</p>
+
+        <h1 class="mood-date" style="color: #000000; font-size: 18px;"> On {{ mood.created_at }} you said you were
+          feeling <strong> {{ mood.mood }} </strong></h1>
+        <h2 class="mood-intensity" style="color: #676767; font-size: 16px"> Your feeling intensity was {{
+          mood.get_intensity_display }}</h2>
+
+        <div class="journal-text"
+          style="background: repeating-radial-gradient(circle, #ffecd2, #fcb69f, #d4fc79, #a1c4fd); opacity: 0.5;">
+          <p>
+            You also said "{{ mood.journal_text }}"
+          </p>
+        </div>
+
 
         <div class="mood-actions">
-          <a href="{% url 'mood-update' mood.id %}" class="btn warn">Edit</a>
-          <a href="{% url 'mood-delete' mood.id %}" class="btn danger">Delete</a>
+          <a href="{% url 'mood-update' mood.id %}" style="color: #000000; font-size: 16px;">Edit</a>
+          <a href="{% url 'mood-delete' mood.id %}" style="color: #000000; font-size: 16px;">Delete</a>
         </div>
       </div>
     </div>
+    <div style="
+       border-radius: 9px;
+        padding: 10px; /* border thickness */
+        background: linear-gradient(135deg, #F6D4D7, #84D9F9, #F8E7A9, #F4C7F7);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 750px;
+        height: 200px;
+        box-sizing: border-box;
+      ">
+      <div style="
+          background: white; /* inner circle background */
+      
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 16px;
+          color: #333;
+          text-align: center;
+          padding: 10px;
+          box-sizing: border-box;
+        ">
 
-    {% if mood.affirmation %}
-    <div class="affirmation-section">
-      <hr />
-      <h3>Your Personalized Affirmation</h3>
-      <p class="affirmation-text"><em>{{ mood.affirmation }}</em></p>
+        {% if mood.affirmation %}
+        <div>
+
+          <h3 style="color:#000000;">Your Personalized Affirmation</h3>
+          <hr />
+          <p style="color:#000000; font-size: 16px;"><em>{{ mood.affirmation }}</em></p>
+
+
+        </div>
+        {% else %}
+        <div class="affirmation-section">
+          <hr />
+          <p class="no-affirmation">No affirmation was generated.</p>
+        </div>
+        {% endif %}
+
+      </div>
+      <!-- <div style="margin-top: 24px">
+        <a href="{% url 'moods' %}" class="btn primary">Back to Moods</a>
+      </div> -->
     </div>
-    {% else %}
-    <div class="affirmation-section">
-      <hr />
-      <p class="no-affirmation">No affirmation was generated.</p>
-    </div>
-    {% endif %}
+
+
   </div>
+
+
 </section>
 {% endblock %}

@@ -1,12 +1,12 @@
 .page-header {
   text-align: center;
-  margin: 2rem 0 1rem;
 }
 .page-header h1 {
   font-size: var(--font-xxl);
   color: #704B38;
   letter-spacing: 1px;
 }
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
