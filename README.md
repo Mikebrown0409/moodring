@@ -12,16 +12,17 @@ This project was developed as a team collaboration to explore the intersection o
 
 ## 💡 Features
 
-- Submit mood entries with emotion name, intensity, and journal notes  
-- Color-coded mood classification system  
-- Daily journaling with timestamp  
-- Mood history tracking  
-- Optional affirmations for reflection or motivation  
+- Submit mood entries with emotion name, intensity, and journal notes
+- Color-coded mood classification system
+- Daily journaling with timestamp
+- Mood history tracking
+- Optional affirmations for reflection or motivation
 
 ---
+
 ## 📷 Screenshots
 
-![Login](main_app/screenshots/login.png)
+![Login](main_app/screenshots/home.png)
 ![Dashboard](main_app/screenshots/dashboard.png)
 ![MoodForm](main_app/screenshots/moodform.png)
 ![Resources](main_app/screenshots/resources.png)
@@ -32,11 +33,11 @@ This project was developed as a team collaboration to explore the intersection o
 
 ## 🛠 Technologies Used
 
-- **Python** , **Django & Postgres** – Backend and database management  
-- **HTML/CSS** – User interface design  
-- **JavaScript** – Interactive frontend features  
-- **Neon** – Default development database  
-- **Gemini AI** - API integration  
+- **Python** , **Django & Postgres** – Backend and database management
+- **HTML/CSS** – User interface design
+- **JavaScript** – Interactive frontend features
+- **Neon** – Default development database
+- **Gemini AI** - API integration
 
 ---
 
@@ -44,11 +45,11 @@ This project was developed as a team collaboration to explore the intersection o
 
 This project was proudly created by:
 
-- Ashley  
-- Dia  
-- Jimmy  
-- Michael  
-- Travis  
+- Ashley
+- Dia
+- Jimmy
+- Michael
+- Travis
 
 Each team member contributed to various parts of the app, including frontend design, backend development, styling, and debugging.
 
@@ -56,10 +57,10 @@ Each team member contributed to various parts of the app, including frontend des
 
 ## 📌 Future Improvements
 
-- Add mood trend graphs or analytics  
-- User authentication with personalized dashboards  
-- Exportable mood journals  
-- Daily mood reminders or notifications  
+- Add mood trend graphs or analytics
+- User authentication with personalized dashboards
+- Exportable mood journals
+- Daily mood reminders or notifications
 
 ---
 
